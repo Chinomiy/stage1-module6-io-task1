@@ -2,6 +2,7 @@ package com.epam.mjc.io;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
@@ -26,10 +27,12 @@ public class FileReader {
                     case "Phone":
                         profile.setPhone((long) Integer.parseInt(getProfileValue(line)));
                         break;
+                    default:
+                        break;
                 }
             }
         } catch (IOException e) {
-
+            throw new RuntimeException(e);
         }
         return profile;
     }
