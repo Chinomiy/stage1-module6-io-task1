@@ -27,4 +27,5 @@ public class FileReader {
         String[] data = profileValue.split(":");
         return data[data.length - 1].trim();
     }
+    private FileReader(){}
 }

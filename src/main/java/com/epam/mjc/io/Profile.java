@@ -10,7 +10,6 @@ public class Profile {
     private Long phone;
 
     private Profile() {
-
     }
 
     public Profile(String name, Integer age, String email, Long phone) {
