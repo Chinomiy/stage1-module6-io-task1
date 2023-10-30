@@ -9,32 +9,19 @@ import java.io.IOException;
 public class FileReader {
 
     public static Profile getDataFromFile(File file) {
-        Profile profile = new Profile();
+        String nameLine = "";
+        String ageLine = "";
+        String emailLine = "";
+        String phoneLine = "";
         try (BufferedReader bufferedReader = new BufferedReader(new java.io.FileReader(file))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] data = line.split(":");
-                switch (data[0]) {
-                    case "Name":
-                        profile.setName(getProfileValue(line));
-                        break;
-                    case "Age":
-                        profile.setAge(Integer.parseInt(getProfileValue(line)));
-                        break;
-                    case "Email":
-                        profile.setEmail(getProfileValue(line));
-                        break;
-                    case "Phone":
-                        profile.setPhone((long) Integer.parseInt(getProfileValue(line)));
-                        break;
-                    default:
-                        break;
-                }
-            }
+            nameLine = bufferedReader.readLine();
+            ageLine = bufferedReader.readLine();
+            emailLine = bufferedReader.readLine();
+            phoneLine = bufferedReader.readLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return profile;
+        return new Profile(getProfileValue(nameLine),Integer.parseInt(getProfileValue(ageLine)),getProfileValue(emailLine),Long.parseLong(getProfileValue(phoneLine)));
     }
 
     public static String getProfileValue(String profileValue) {
