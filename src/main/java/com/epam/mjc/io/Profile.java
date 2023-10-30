@@ -9,7 +9,7 @@ public class Profile {
     private String email;
     private Long phone;
 
-    public Profile() {
+    private Profile() {
 
     }
 
@@ -19,7 +19,6 @@ public class Profile {
         this.email = email;
         this.phone = phone;
     }
-
     public String getName() {
         return name;
     }
