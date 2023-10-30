@@ -25,13 +25,8 @@ public class FileReader {
         }
         return profile;
     }
-
     public static String getProfileValue(String profileValue) {
         String[] data = profileValue.split(":");
         return data[data.length-1].trim();
-    }
-    public static String getProfileKeys(String profileKeys){
-        String[] data = profileKeys.split(":");
-        return data[0].trim();
     }
 }
